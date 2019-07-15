@@ -1,0 +1,61 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org" lang="pl">-->
+<!--<head>-->
+<!--    <title>Dodawanie wycieczki</title>-->
+<!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
+<!--    <th:block th:replace="fragments/header :: header-css"/>-->
+<!--    <link rel="stylesheet" th:href="@{/css/signin.css}"/>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div th:replace="fragments/header :: header"></div>-->
+<!--<h1 th:text="'Dodawanie wycieczki'"></h1>-->
+<!--<form th:action="@{/admin/addtrip}" th:object="${tripFormData}" method="post" class="form-signin">-->
+
+<!--    <label for="name">Nazwa:</label>-->
+<!--    <input id="name" type="text" th:field="*{name}" autofocus class="form-control"/>-->
+<!--    <div class="error" th:errors="*{name}"></div>-->
+
+<!--    <label for="name1">Ilosc miejsc dla dosroslych</label>-->
+<!--    <input id="name1" type="text" th:field="*{numberAdultPlaces}" autofocus class="form-control"/>-->
+<!--    <div class="error" th:errors="*{numberAdultPlaces}"></div>-->
+
+<!--    <label for="name2">Ilosc miejsc dla dzieci</label>-->
+<!--    <input id="name2" type="text" th:field="*{numberChildPlaces}" autofocus class="form-control"/>-->
+<!--    <div class="error" th:errors="*{numberChildPlaces}"></div>-->
+
+<!--    <label for="name3">Cena za osobe dorosla</label>-->
+<!--    <input id="name3" type="text" th:field="*{addultPrice}" autofocus class="form-control"/>-->
+<!--    <div class="error" th:errors="*{addultPrice}"></div>-->
+
+<!--    <label for="name4">Cena za dziecko</label>-->
+<!--    <input id="name4" type="text" th:field="*{childPrice}" autofocus class="form-control"/>-->
+<!--    <div class="error" th:errors="*{childPrice}"></div>-->
+
+<!--    <label for="name5">Data wyjazdu</label>-->
+<!--    <input id="name5" type="text" placeholder="yyyy-mm-dd" th:field="*{dateOfDeparture}" autofocus-->
+<!--           class="form-control"/>-->
+<!--    <div class="error" th:errors="*{dateOfDeparture}"></div>-->
+
+<!--    <label for="name6">Data powrotu</label>-->
+<!--    <input id="name6" type="text" placeholder="yyyy-mm-dd" th:field="*{dateOfReturn}" autofocus class="form-control"/>-->
+<!--    <div class="error" th:errors="*{dateOfReturn}"></div>-->
+
+<!--    <label for="city">Miasto</label>-->
+<!--        <select autofocus class="form-control" id="city" th:field="*{destinationName}">-->
+<!--        <option th:value="''" th:text="Wybierz"></option>-->
+<!--        <option th:each="destinationName : ${cities}" th:value="${destinationName}" th:text="${destinationName}"></option>-->
+<!--    </select>-->
+
+<!--    <label for="food">Rodzaj wyzywienia:</label>-->
+<!--    <select autofocus class="form-control" id="food" th:field="*{foodType}">-->
+<!--        <option th:value="''" th:text="Wybierz"></option>-->
+<!--        <option th:each="foodType : ${foodtypes}" th:value="${foodType.getType()}" th:text="${foodType}"></option>-->
+<!--    </select>-->
+
+<!--    <input id="promotion" type="checkbox" th:field="*{promotion}"/>-->
+<!--    <label for="promotion">Promocja:</label>-->
+
+<!--    <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->

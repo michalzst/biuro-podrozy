@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:fragment="header-css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+
+        <link rel="stylesheet" th:href="@{/css/main.css}"/>
+        <link rel="stylesheet" th:href="@{/css/table.css}"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    </div>
+</head>
+<body>
+<div th:fragment="header">
+    <h1 class="h1">Biuro podróży grupa 3</h1>
+    <div class="topnav">
+        <span th:if="${@userContextService.getLoggedUserEmail()}">
+            <span th:if="${@userContextService.admin()}">
+                <a href="/admin/addtrip">Dodaj wycieczke</a>
+
+            </span>
+            <span th:if="${@userContextService.user()}">
+                <a th:if="${@userContextService.getLoggedUserEmail()}" href="/products/list">Produkty - lista</a>
+                <a th:if="${@userContextService.getLoggedUserEmail()}" href="/products/table">Produkty - tabela z paginacją</a>
+            </span>
+            <a href="/logout" style="float: right">Wyloguj</a>
+        </span>
+        <span th:if="!${@userContextService.getLoggedUserEmail()}">
+            <a href="/">Strona Główna</a>
+            <a href="/register">Rejestracja</a>
+            <a href="/login">Login</a>
+        </span>
+        <p th:if="${@userContextService.getLoggedUserEmail()}"
+           th:text="'Zalogowano jako: '+ ${@userContextService.getLoggedUserEmail()}"
+           style="float: right;color: white"></p>
+        <span th:if="${@userContextService.user()}">
+
+        <p style="float: right;color: white" id="weather"></p>
+        </span>
+    </div>
+<!--    <form th:if="${@userContextService.user() and cartActive == true}" th:action="@{/placeOrder}">-->
+<!--        <div style="float: right" id="cartWidget">-->
+<!--        TWÓJ KOSZYK:-->
+<!--        <ul id="orderItems">-->
+<!--            <span id="toReplace"></span>-->
+<!--        </ul>-->
+<!--        <button type="submit" >KUPUJĘ</button>-->
+<!--    </div>-->
+<!--</form>-->
+
+</div>
+
+</body>
+</html>

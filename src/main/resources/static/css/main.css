@@ -1,0 +1,154 @@
+footer{
+    margin-top:60px;
+}
+
+body {
+    font-family: "Lato", sans-serif;
+
+}
+
+.error{
+    color: #FF0000;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+/* Add a color to the active/current link */
+
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+    display: block;
+    align-items: center;
+}
+.column {
+    margin:0 auto;
+    display: block;
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+    -webkit-column-rule: 1px solid #1C6EA4;
+    -moz-column-rule: 1px solid #1C6EA4;
+    column-rule: 1px solid #1C6EA4;
+}
+
+.h1{
+    text-align: center;
+}
+
+.labelpromotionornoy{
+    font-size:20px;
+    font-weight:bold;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+}
+#back{
+    background: url("/images/tlo.jpg");
+}
+
+/*.buttonWiecej {*/
+
+/*    !*Krok 2: Podstawowe style*!*/
+/*    !*display: block;*!*/
+/*    height: 25px;*/
+/*    width: 80px;*/
+/*    !*border: 2px solid rgba(33, 68, 72, 0.59);*!*/
+/*    overflow: hidden;*/
+
+/*    !*Krok 3: Style tekstu*!*/
+/*    color: #f2f2f2;*/
+/*    text-align: center;*/
+
+/*    !*Krok 4: Ozdobne style CSS3*!*/
+/*    background-color: #5592bb;*/
+
+/*    -webkit-border-radius: 50px;*/
+/*    -khtml-border-radius: 50px;*/
+/*    -moz-border-radius: 50px;*/
+/*    border-radius: 50px;*/
+/*}*/
+
+/*!*Krok 3: Linkuj styl*!*/
+/*.buttonWiecej b{*/
+/*    float: left;*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*!*Krok 5: Zachowanie przy najechaniu na button*!*/
+/*.buttonWiecej b:hover {*/
+/*    background-color: #f1f6ff;*/
+/*    color: black;*/
+/*}*/
+/*.buttonWiecej b.active {*/
+/*    background-color: #4CAF50;*/
+/*    color: white;*/
+/*}*/
