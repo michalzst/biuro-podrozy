@@ -2,6 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <script type="text/javascript">
+        // <!--
+        var the_flash;
+        var the_timeout;
+        function flash(id, color1, time1, color2, time2) {
+            the_flash = 'flash("' + id + '","' + color2 + '",' + time2 + ',"'
+                + color1 + '",' + time1 + ');';
+            document.getElementById(id).style.color = color1;
+            the_timeout = setTimeout(the_flash, time1);
+        }
+        // -->
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,57 +22,66 @@
     <Title>Biuro podróży grupa 3</Title>
     <div th:replace="fragments/header :: header-css"/>
 
+</head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<div class="container-fluid vertical-center">
-    <div class="column">
-        <div class="col-md-8">
-            <div class="labelpromotionornoy" th:text="${promotion}">Label</div>
-            <table class="blueTable">
-                <thead>
-                <tr>
-                    <th>Lp</th>
-                    <th>Nazwa</th>
-                    <th>Miasto</th>
-                    <th>Państwo</th>
-                    <th>Szczegóły</th>
-                </tr>
-                </thead>
+    <div>
+        <div class="labelpromotionornoy" id="tekstpromocja"th:text="${promotion}" onmouseover='clearTimeout(the_timeout);
+        this.style.color="black";'
+             onmouseout='setTimeout(the_flash, 500);'>Label</div>
+        <script type="text/javascript">
+            // <!--
+            flash("tekstpromocja", "black", 500, "white", 500);
+            // -->
+        </script>
+        <table class="blueTable">
+            <thead>
+            <tr>
+                <th>Lp</th>
+                <th>Nazwa</th>
+                <th>Miasto</th>
+                <th>Państwo</th>
+                <th>Szczegóły</th>
+            </tr>
+            </thead>
             <tbody>
-                <tr th:each="trip,iterationStatus : ${promotiontrips}">
-                    <td th:text="${iterationStatus.count}">1</td>
-                    <td th:text="${trip.getName()}">Name</td>
-                    <td th:text="${trip.getDestinationName().getName()}">destinationName</td>
-                    <td th:text="${trip.getDestinationName().getCountry().name}">countryName</td>
-                    <td> <button class="buttonWiecej" type="submit" th:value="${trip.getId()}" >Więcej...</button></td>
-                </tr>
+            <tr th:each="trip,iterationStatus : ${promotiontrips}">
+                <td th:text="${iterationStatus.count}">1</td>
+                <td th:text="${trip.getName()}">Name</td>
+                <td th:text="${trip.getDestinationName().getName()}">destinationName</td>
+                <td th:text="${trip.getDestinationName().getCountry().name}">countryName</td>
+                <td>
+                    <button class="buttonWiecej" type="submit" th:value="${trip.getId()}">Więcej...</button>
+                </td>
+            </tr>
             </tbody>
-            </table>
+        </table>
 
-            <div class="labelpromotionornoy" th:text="${notpromotion}">Label</div>
-            <table class="blueTable">
-                <thead>
-                <tr>
-                    <th>Lp</th>
-                    <th>Nazwa</th>
-                    <th>Miasto</th>
-                    <th>Państwo</th>
-                    <th>Szczegóły</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="trip,iterationStatus : ${trips}">
-                    <td th:text="${iterationStatus.count}">1</td>
-                    <td th:text="${trip.getName()}">Name</td>
-                    <td th:text="${trip.getDestinationName().getName()}">destinationName</td>
-                    <td th:text="${trip.getDestinationName().getCountry().name}">countryName</td>
-                    <td> <button class="buttonWiecej" type="button" th:action="@{'/showTripById/' + ${trip.getId()}}" method="post" >Więcej...</button></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="labelpromotionornoy" th:text="${notpromotion}">Label</div>
+        <table class="blueTable">
+            <thead>
+            <tr>
+                <th>Lp</th>
+                <th>Nazwa</th>
+                <th>Miasto</th>
+                <th>Państwo</th>
+                <th>Szczegóły</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="trip,iterationStatus : ${trips}">
+                <td th:text="${iterationStatus.count}">1</td>
+                <td th:text="${trip.getName()}">Name</td>
+                <td th:text="${trip.getDestinationName().getName()}">destinationName</td>
+                <td th:text="${trip.getDestinationName().getCountry().name}">countryName</td>
+                <td>
+                    <button class="buttonWiecej" type="button" th:action="@{'/showTripById/' + ${trip.getId()}}"
+                            method="post">Więcej...
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-</div>
 </body>
-
 </html>

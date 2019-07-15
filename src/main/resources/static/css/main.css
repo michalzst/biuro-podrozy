@@ -79,27 +79,6 @@ body {
     background-color: #4CAF50;
     color: white;
 }
-
-.vertical-center {
-    min-height: 100%;
-    min-height: 100vh;
-    display: block;
-    align-items: center;
-}
-.column {
-    margin:0 auto;
-    display: block;
-    -webkit-column-count: 1;
-    -moz-column-count: 1;
-    column-count: 1;
-    -webkit-column-gap: 10px;
-    -moz-column-gap: 10px;
-    column-gap: 10px;
-    -webkit-column-rule: 1px solid #1C6EA4;
-    -moz-column-rule: 1px solid #1C6EA4;
-    column-rule: 1px solid #1C6EA4;
-}
-
 .h1{
     text-align: center;
 }
@@ -114,41 +93,3 @@ body {
 #back{
     background: url("/images/tlo.jpg");
 }
-
-/*.buttonWiecej {*/
-
-/*    !*Krok 2: Podstawowe style*!*/
-/*    !*display: block;*!*/
-/*    height: 25px;*/
-/*    width: 80px;*/
-/*    !*border: 2px solid rgba(33, 68, 72, 0.59);*!*/
-/*    overflow: hidden;*/
-
-/*    !*Krok 3: Style tekstu*!*/
-/*    color: #f2f2f2;*/
-/*    text-align: center;*/
-
-/*    !*Krok 4: Ozdobne style CSS3*!*/
-/*    background-color: #5592bb;*/
-
-/*    -webkit-border-radius: 50px;*/
-/*    -khtml-border-radius: 50px;*/
-/*    -moz-border-radius: 50px;*/
-/*    border-radius: 50px;*/
-/*}*/
-
-/*!*Krok 3: Linkuj styl*!*/
-/*.buttonWiecej b{*/
-/*    float: left;*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*!*Krok 5: Zachowanie przy najechaniu na button*!*/
-/*.buttonWiecej b:hover {*/
-/*    background-color: #f1f6ff;*/
-/*    color: black;*/
-/*}*/
-/*.buttonWiecej b.active {*/
-/*    background-color: #4CAF50;*/
-/*    color: white;*/
-/*}*/

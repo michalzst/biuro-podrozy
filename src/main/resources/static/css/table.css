@@ -3,10 +3,10 @@ table.blueTable {
     background-color: #EEEEEE;
     width: 100%;
     text-align: center;
-    align-items: center;
     border-collapse: collapse;
     margin-top: 10px;
     margin-bottom: 25px;
+
 }
 table.blueTable td, table.blueTable th {
     border: 1px solid #AAAAAA;
