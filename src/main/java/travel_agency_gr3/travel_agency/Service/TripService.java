@@ -32,26 +32,22 @@ public class TripService {
     @Autowired
     private TripRepo<Trip> tripRepo;
 
-    public void createNewTrip(City destinationName,
-                              LocalDate dateOfDeparture,
-                              LocalDate dateOfReturn,
-                              Integer numberOfDays,
-                              FoodType foodType,
-                              Double addultPrice,
-                              Double childPrice,
-                              String name,
-                              Integer numberAdultPlaces,
-                              Integer numberChildPlaces,
-                              boolean promotion) {
+    public void createNewTrip(String name, City destinationName, LocalDate dateOfDeparture, LocalDate dateOfReturn, FoodType foodType, Double addultPrice, Double childPrice,
+                               Integer numberAdultPlaces, Integer numberChildPlaces, boolean promotion) {
+        LocalDate start = LocalDate.from(dateOfDeparture);
+        LocalDate rtn = LocalDate.from(dateOfReturn);
+
         Trip trip = new Trip();
-        trip.setAddultPrice(addultPrice);
-        trip.setDestinationName(destinationName);
         trip.setName(name);
-        trip.setNumberOfDays(numberOfDays);
-        trip.setChildPrice(childPrice);
+        trip.setDestinationName(destinationName);
         trip.setDateOfDeparture(dateOfDeparture);
-        trip.setFoodType(foodType);
         trip.setDateOfReturn(dateOfReturn);
+        trip.setNumberOfDays(rtn.getDayOfYear() - start.getDayOfYear());
+        trip.setFoodType(foodType);
+        trip.setAddultPrice(addultPrice);
+        trip.setChildPrice(childPrice);
+        trip.setNumberAdultPlaces(numberAdultPlaces);
+        trip.setNumberChildPlaces(numberChildPlaces);
         trip.setPromotion(promotion);
         tripRepo.save(trip);
     }

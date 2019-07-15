@@ -22,9 +22,7 @@ public class CityService {
     @Autowired
     private CityRepo<City> cityRepo;
 
-    public void createNewCity(Country country,
-                              String name
-    ) {
+    public void createNewCity(Country country,String name) {
         City city = new City();
         city.setCountry(country);
         city.setName(name);
@@ -40,6 +38,9 @@ public class CityService {
 
     public City findCity(String name){
         return cityRepo.findCityByNameList(name).get(0);
+    }
+    public City findCityNyName(String name){
+        return cityRepo.findCityByName(name);
     }
     public Set findAllCity() {
         Set<String> cityListNames = new HashSet<>();

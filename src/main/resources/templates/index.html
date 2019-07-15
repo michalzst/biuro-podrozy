@@ -19,7 +19,7 @@
             <table class="blueTable">
                 <thead>
                 <tr>
-                    <th>LP</th>
+                    <th>Lp</th>
                     <th>Nazwa</th>
                     <th>Miasto</th>
                     <th>Państwo</th>
@@ -41,7 +41,7 @@
             <table class="blueTable">
                 <thead>
                 <tr>
-                    <th>LP</th>
+                    <th>Lp</th>
                     <th>Nazwa</th>
                     <th>Miasto</th>
                     <th>Państwo</th>
@@ -54,7 +54,7 @@
                     <td th:text="${trip.getName()}">Name</td>
                     <td th:text="${trip.getDestinationName().getName()}">destinationName</td>
                     <td th:text="${trip.getDestinationName().getCountry().name}">countryName</td>
-                    <td> <button class="buttonWiecej" type="submit" th:action="@{'/showTripById/' + ${trip.getId()}}" method="post" >Więcej...</button></td>
+                    <td> <button class="buttonWiecej" type="button" th:action="@{'/showTripById/' + ${trip.getId()}}" method="post" >Więcej...</button></td>
                 </tr>
                 </tbody>
             </table>

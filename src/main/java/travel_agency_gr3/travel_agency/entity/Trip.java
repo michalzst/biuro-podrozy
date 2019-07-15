@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Trip extends BaseEntity {
+    private String name;
     @OneToOne
     private City destinationName;
     private LocalDate dateOfDeparture;
@@ -29,5 +30,4 @@ public class Trip extends BaseEntity {
     private Integer numberAdultPlaces;
     private Integer numberChildPlaces;
     private boolean promotion;
-    private String name;
 }
