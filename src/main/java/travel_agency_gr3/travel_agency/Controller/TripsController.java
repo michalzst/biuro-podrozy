@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import travel_agency_gr3.travel_agency.DTO.TripDTO;
 import travel_agency_gr3.travel_agency.Service.TripService;
 import travel_agency_gr3.travel_agency.datatables.DataTablesResponse;
@@ -19,23 +20,29 @@ import java.util.Optional;
 import static org.apache.commons.lang3.ObjectUtils.defaultIfNull;
 
 @Controller
-@RequestMapping(value = "/showTrip")
 public class TripsController {
     @Autowired
     private TripService tripService;
 
-    @GetMapping(value = "/showTripById")
-    public String addTripForm(Model model) {
-        model.addAttribute("tripFormData", new TripDTO());
+    @GetMapping(value = "/showTripsById")
+    public String addTripForm(@RequestParam Long id, Model model) {
+
+        Trip t = tripService.findTripTrip2(id);
+        model.addAttribute("showTrips", t);
         return "showTrip";
     }
 
-    @RequestMapping(value = "/showTripById/{id}", method = RequestMethod.POST)
-    public String showTrip(@PathVariable("id") Long tripId, Model model, HttpServletResponse response) {
-        Optional<Trip> t = tripService.findTrip(tripId);
-        model.addAttribute("addData", t.get());
+    @PostMapping(value = "/showTripsById")
+    public String showTrip(@ModelAttribute(name = "showTrips") @PathVariable Integer id, Model model) {
+        Long id2 = Long.valueOf(id);
+        Trip t = tripService.findTripTrip2(id2);
+
+        model.addAttribute("tripName", t.getName());
+
         return "showTrip";
     }
+
+
 
     @GetMapping("/list")
     public String tripList(@RequestParam(required = false) String text, Model model) {

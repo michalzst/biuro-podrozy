@@ -61,6 +61,10 @@ public class TripService {
         return tripRepo.findById(id);
     }
 
+    public Trip findTripTrip2(Long id){
+        return tripRepo.findTripById2(id);
+    }
+
     public List<Trip> findPromotionTrips() {
         return tripRepo.findPromotionTrip();
     }

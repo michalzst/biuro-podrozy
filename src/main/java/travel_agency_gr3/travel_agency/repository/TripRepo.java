@@ -16,6 +16,9 @@ public interface TripRepo<T extends Trip> extends JpaRepository<Trip, Long>, Que
 
     Optional<T> findTripById(Long id);
 
+    @Query ("SELECT t FROM Trip t where (t.id)=?1")
+    Trip findTripById2(Long id);
+
     List<T> findTripByFoodType(FoodType foodType);
 
     @Query ("SELECT t FROM Trip t where (t.promotion)=true")
