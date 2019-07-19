@@ -51,8 +51,8 @@
                 <td th:text="${trip.getDestinationName().getName()}">destinationName</td>
                 <td th:text="${trip.getDestinationName().getCountry().name}">countryName</td>
                 <td>
-                    <form action="#" th:action="@{'/showTripsById'(id=${trip.getId()})}" method="post">
-                        <input type="hidden" name="_method" value="post" />
+                    <form action="#" th:action="@{'/showTripsById'}" method="get">
+                        <input type="hidden" name="id" th:value="${trip.getId()}" />
                         <button class="buttonWiecej" type="submit" id="submitButton">Wiecej...</button>
                     </form>
                 </td>
@@ -78,7 +78,10 @@
                 <td th:text="${trip.getDestinationName().getName()}">destinationName</td>
                 <td th:text="${trip.getDestinationName().getCountry().name}">countryName</td>
                 <td>
-                    <button class="buttonWiecej">Wieciej...</button>
+                    <form action="#" th:action="@{'/showTripsById'}" method="get">
+                        <input type="hidden" name="id" th:value="${trip.getId()}" />
+                        <button class="buttonWiecej" type="submit" id="submitButton2">Wiecej...</button>
+                    </form>
                 </td>
             </tr>
             </tbody>

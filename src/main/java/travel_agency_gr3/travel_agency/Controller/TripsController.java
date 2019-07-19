@@ -25,17 +25,19 @@ public class TripsController {
     private TripService tripService;
 
     @GetMapping(value = "/showTripsById")
-    public String addTripForm(@RequestParam Long id, Model model) {
-
+    public ModelAndView addTripForm(@RequestParam Long id) {
+        ModelAndView m = new ModelAndView();
         Trip t = tripService.findTripTrip2(id);
-        model.addAttribute("showTrips", t);
-        return "showTrip";
+        m.setViewName("showTrip");
+
+        m.addObject("tripName", t.getName());
+
+        return m;
     }
 
     @PostMapping(value = "/showTripsById")
-    public String showTrip(@ModelAttribute(name = "showTrips") @PathVariable Integer id, Model model) {
-        Long id2 = Long.valueOf(id);
-        Trip t = tripService.findTripTrip2(id2);
+    public String showTrip(@ModelAttribute(name = "showTrips") @PathVariable Long id, Model model) {
+        Trip t = tripService.findTripTrip2(id);
 
         model.addAttribute("tripName", t.getName());
 
