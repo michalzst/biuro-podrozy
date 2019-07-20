@@ -18,6 +18,7 @@
     <div class="topnav">
         <span th:if="${@userContextService.getLoggedUserEmail()}">
             <span th:if="${@userContextService.admin()}">
+                <a href="/index">Pokaż wszystkie</a>
                 <a href="/admin/addtrip">Dodaj wycieczke</a>
                 <a href="/admin/addcountry">Dodaj kraj</a>
                 <a href="/admin/addcity">Dodaj miasto</a>
