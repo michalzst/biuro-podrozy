@@ -11,6 +11,7 @@ import travel_agency_gr3.travel_agency.repository.CountryRepo;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Service
 public class CountryService {
@@ -36,7 +37,7 @@ public class CountryService {
         return countryRepo.findCountryByName(name);
     }
     public Set findAllCountry() {
-        Set<String> countryListNames = new HashSet<>();
+        Set<String> countryListNames = new TreeSet<>();
         for (Country c:countryRepo.findAll()) {
             countryListNames.add(c.getName().trim());
         }

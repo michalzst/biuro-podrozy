@@ -9,10 +9,7 @@ import travel_agency_gr3.travel_agency.entity.City;
 import travel_agency_gr3.travel_agency.entity.Country;
 import travel_agency_gr3.travel_agency.repository.CityRepo;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class CityService {
@@ -43,7 +40,7 @@ public class CityService {
         return cityRepo.findCityByName(name);
     }
     public Set findAllCity() {
-        Set<String> cityListNames = new HashSet<>();
+        Set<String> cityListNames = new TreeSet<>();
         for (City c:cityRepo.findAll()) {
             cityListNames.add(c.getName().trim());
         }
