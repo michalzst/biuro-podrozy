@@ -23,12 +23,12 @@
                 <a href="/admin/addcity">Dodaj miasto</a>
             </span>
             <span th:if="${@userContextService.user()}">
-                <a th:if="${@userContextService.getLoggedUserEmail()}" href="/index">Wycieczki - lista</a>
+                <a th:if="${@userContextService.getLoggedUserEmail()}" href="/">Wycieczki - lista</a>
             </span>
             <a href="/logout">Wyloguj</a>
         </span>
         <span th:if="!${@userContextService.getLoggedUserEmail()}">
-            <a href="/">Strona Główna</a>
+            <a href="/index">Strona Główna</a>
             <a href="/register">Rejestracja</a>
             <a href="/login">Login</a>
         </span>

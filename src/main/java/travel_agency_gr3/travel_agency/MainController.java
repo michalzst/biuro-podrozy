@@ -67,6 +67,10 @@ public class MainController {
         return m;
 
     }
+    @GetMapping("/index")
+    public ModelAndView getIndexView() {
+      return getIndex();
+    }
 
     @GetMapping("/login")
     public String login() {
