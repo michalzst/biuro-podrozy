@@ -29,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/").hasAnyAuthority("ROLE_ADMIN","ROLE_USER")
                 .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/index/**").hasAnyAuthority( "ROLE_USER")
-                .antMatchers("/h2/**").permitAll()
+                .antMatchers("/showTripsById/**").hasAnyAuthority( "ROLE_USER")
+                .antMatchers("/h2/**","/index").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .csrf().disable()
@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .loginProcessingUrl("/login-process")
                 .failureUrl("/login?error")
-                .defaultSuccessUrl("/").and()
+                .defaultSuccessUrl("/index").and()
                 .logout().logoutSuccessUrl("/login");
     }
 
