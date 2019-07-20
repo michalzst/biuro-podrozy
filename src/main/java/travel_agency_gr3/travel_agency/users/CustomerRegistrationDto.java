@@ -16,7 +16,7 @@ public class CustomerRegistrationDto {
     private String lastName;
     @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*", message = "Hasło jest wymagane. Musi zawierać od 10 do 20 znaków, jedną duża, jedna małą literę i cyfrę.")
     private String password;
-    @Pattern(regexp = "^[\\w\\.]+@[\\w]+\\.[\\w]+(\\.[a-z]{2,3})?$", message = "Zły format adresu email")
+    @Pattern(regexp = "^[a-z0-9_.-]+@[\\w]+\\.[\\w]+(\\.[a-z]{2,3})?$", message = "Zły format adresu email")
     private String email;
     @Pattern(regexp = "^\\d{11}$", message = "Zły format. Numer PESEL powinien składać się z 11 cyfr")
     private String pesel;
