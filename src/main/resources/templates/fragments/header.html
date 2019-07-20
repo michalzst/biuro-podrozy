@@ -19,7 +19,8 @@
         <span th:if="${@userContextService.getLoggedUserEmail()}">
             <span th:if="${@userContextService.admin()}">
                 <a href="/admin/addtrip">Dodaj wycieczke</a>
-
+                <a href="/admin/addcountry">Dodaj kraj</a>
+                <a href="/admin/addcity">Dodaj miasto</a>
             </span>
             <span th:if="${@userContextService.user()}">
                 <a th:if="${@userContextService.getLoggedUserEmail()}" href="/index">Wycieczki - lista</a>
@@ -31,9 +32,11 @@
             <a href="/register">Rejestracja</a>
             <a href="/login">Login</a>
         </span>
-        <p th:if="${@userContextService.getLoggedUserEmail()}"
-           th:text="'Zalogowano jako:' + ${@userContextService.getLoggedUserEmail()}"
-           style="text-align: right;color: white"></p>
+        <div style="display: flex">
+            <p th:if="${@userContextService.getLoggedUserEmail()}"
+               th:utext="'Zalogowano jako:' + '<br />' + ${@userContextService.getLoggedUserEmail()}"
+               style="text-align: center;color: white; margin-top:auto"></p>
+        </div>
     </div>
       <!--    <form th:if="${@userContextService.user() and cartActive == true}" th:action="@{/placeOrder}">-->
     <!--        <div style="float: right" id="cartWidget">-->
