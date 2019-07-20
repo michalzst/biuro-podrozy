@@ -32,6 +32,11 @@ public class AdminContoller {
     @Autowired
     CountryService countryService;
 
+    @GetMapping
+    public String logged(Model model){
+        model.addAttribute("info", "dla admina");
+        return "admin";
+    }
     @GetMapping(value = "/addtrip")
     public String addTripForm(Model model) {
         model.addAttribute("tripFormData", new TripDTO());
