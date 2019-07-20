@@ -22,10 +22,9 @@
 
             </span>
             <span th:if="${@userContextService.user()}">
-                <a th:if="${@userContextService.getLoggedUserEmail()}" href="/products/list">Produkty - lista</a>
-                <a th:if="${@userContextService.getLoggedUserEmail()}" href="/products/table">Produkty - tabela z paginacją</a>
+                <a th:if="${@userContextService.getLoggedUserEmail()}" href="/index">Wycieczki - lista</a>
             </span>
-            <a href="/logout" style="float: right">Wyloguj</a>
+            <a href="/logout">Wyloguj</a>
         </span>
         <span th:if="!${@userContextService.getLoggedUserEmail()}">
             <a href="/">Strona Główna</a>
@@ -33,22 +32,18 @@
             <a href="/login">Login</a>
         </span>
         <p th:if="${@userContextService.getLoggedUserEmail()}"
-           th:text="'Zalogowano jako: '+ ${@userContextService.getLoggedUserEmail()}"
-           style="float: right;color: white"></p>
-        <span th:if="${@userContextService.user()}">
-
-        <p style="float: right;color: white" id="weather"></p>
-        </span>
+           th:text="'Zalogowano jako:' + ${@userContextService.getLoggedUserEmail()}"
+           style="text-align: right;color: white"></p>
     </div>
-<!--    <form th:if="${@userContextService.user() and cartActive == true}" th:action="@{/placeOrder}">-->
-<!--        <div style="float: right" id="cartWidget">-->
-<!--        TWÓJ KOSZYK:-->
-<!--        <ul id="orderItems">-->
-<!--            <span id="toReplace"></span>-->
-<!--        </ul>-->
-<!--        <button type="submit" >KUPUJĘ</button>-->
-<!--    </div>-->
-<!--</form>-->
+      <!--    <form th:if="${@userContextService.user() and cartActive == true}" th:action="@{/placeOrder}">-->
+    <!--        <div style="float: right" id="cartWidget">-->
+    <!--        TWÓJ KOSZYK:-->
+    <!--        <ul id="orderItems">-->
+    <!--            <span id="toReplace"></span>-->
+    <!--        </ul>-->
+    <!--        <button type="submit" >KUPUJĘ</button>-->
+    <!--    </div>-->
+    <!--</form>-->
 
 </div>
 
