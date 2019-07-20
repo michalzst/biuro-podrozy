@@ -31,9 +31,11 @@
             <a href="/register">Rejestracja</a>
             <a href="/login">Login</a>
         </span>
-        <p th:if="${@userContextService.getLoggedUserEmail()}"
-           th:text="'Zalogowano jako:' + ${@userContextService.getLoggedUserEmail()}"
-           style="text-align: right;color: white"></p>
+        <div style="display: flex">
+            <p th:if="${@userContextService.getLoggedUserEmail()}"
+               th:utext="'Zalogowano jako:' + '<br />' + ${@userContextService.getLoggedUserEmail()}"
+               style="text-align: center;color: white"></p>
+        </div>
     </div>
       <!--    <form th:if="${@userContextService.user() and cartActive == true}" th:action="@{/placeOrder}">-->
     <!--        <div style="float: right" id="cartWidget">-->
