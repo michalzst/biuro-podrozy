@@ -8,7 +8,7 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<h1 th:text="'Dodawanie wycieczki'"></h1>
+<h1 class="h1" th:text="'Dodawanie wycieczki'"></h1>
 <form th:action="@{/admin/addtrip}" th:object="${tripFormData}" method="post" class="form-signin">
 
     <label for="name">Nazwa:</label>
