@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import travel_agency_gr3.travel_agency.DTO.CountryDTO;
 import travel_agency_gr3.travel_agency.DTO.TripDTO;
 import travel_agency_gr3.travel_agency.Service.CityService;
+import travel_agency_gr3.travel_agency.Service.CountryService;
 import travel_agency_gr3.travel_agency.Service.TripService;
 import travel_agency_gr3.travel_agency.entity.FoodType;
 
@@ -25,6 +27,9 @@ public class AdminContoller {
 
     @Autowired
     CityService cityService;
+
+    @Autowired
+    CountryService countryService;
 
     @GetMapping(value = "/addtrip")
     public String addTripForm(Model model) {
@@ -46,6 +51,19 @@ public class AdminContoller {
         tripService.updateTrip(trip);
         model.addAttribute("addTripData", trip.getName());
         return "addTripEffect";
+    }
+
+    @GetMapping(value = "/addcountry")
+    public String addCountryForm(Model model) {
+        model.addAttribute("countryFormData", new CountryDTO());
+        return "addCountryForm";
+    }
+
+    @PostMapping(value = "/addcountry")
+    public String addCountry(@ModelAttribute(name = "countryFormData") @Valid CountryDTO countryDTO,Model model) {
+        countryService.updateCountry(countryDTO);
+        model.addAttribute("addCountryData", countryDTO.getName());
+        return "addCountryEffect";
     }
 }
 
