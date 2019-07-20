@@ -34,7 +34,7 @@
         <div style="display: flex">
             <p th:if="${@userContextService.getLoggedUserEmail()}"
                th:utext="'Zalogowano jako:' + '<br />' + ${@userContextService.getLoggedUserEmail()}"
-               style="text-align: center;color: white"></p>
+               style="text-align: center;color: white; margin-top:auto"></p>
         </div>
     </div>
       <!--    <form th:if="${@userContextService.user() and cartActive == true}" th:action="@{/placeOrder}">-->
