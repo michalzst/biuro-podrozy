@@ -17,7 +17,8 @@ import java.util.Optional;
 public class TripDTO {
     private Long id;
     private Long destinationId;
-    @Pattern(regexp = "^[\\p{Lu}][\\p{Ll}]{2,}$", message = "Wymagane przynajmniej 3 znaki(pierwsza litera duża, reszta małe).")
+
+    @Pattern(regexp = "^[\\p{Lu}][\\p{Ll}]{2,19}$", message = "Wymagane od 3 do 20 znaków (pierwsza litera duża, reszta małe).")
     private String name;
 
     private String destinationName;
@@ -34,19 +35,19 @@ public class TripDTO {
     private FoodType foodType;
 
     @NotNull(message = "Pole musi zostać wypełnione")
-    @Max(9)
+    @Digits(integer =4,fraction = 2,message = "4 liczby przed przecinkiem, 2 po przecinku")
     private Double addultPrice;
 
     @NotNull(message = "Pole musi zostać wypełnione")
-    @Max(9)
+    @Digits(integer =4,fraction = 2,message = "4 liczby przed przecinkiem, 2 po przecinku")
     private Double childPrice;
 
     @NotNull(message = "Pole musi zostać wypełnione")
-    @Max(9)
+    @Max(value = 99,message = "Maksymalna liczba: 99")
     private Integer numberAdultPlaces;
 
     @NotNull(message = "Pole musi zostać wypełnione")
-    @Max(9)
+    @Max(value = 99,message = "Maksymalna liczba: 99")
     private Integer numberChildPlaces;
     private boolean promotion;
 
