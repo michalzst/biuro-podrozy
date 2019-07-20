@@ -19,4 +19,5 @@ public interface CountryRepo<T extends Country> extends JpaRepository<Country, L
 
     @Query("SELECT c FROM Country c where (c.name)=?1")
     List<Country> findCountryByNameList(String name);
+
 }

@@ -8,13 +8,12 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"></div>
-<h1 th:text="'Dodawanie nowego państwa'"></h1>
+<h1 class="h1" th:text="'Dodawanie nowego państwa'"></h1>
 <form th:action="@{/admin/addcountry}" th:object="${countryFormData}" method="post" class="form-signin">
 
     <label for="name">Nazwa:</label>
     <input id="name" type="text" th:field="*{name}" autofocus class="form-control"/>
     <div class="error" th:errors="*{name}"></div>
-
     <button class="btn btn-lg btn-primary btn-block" type="submit">Zapisz</button>
 </form>
 </body>

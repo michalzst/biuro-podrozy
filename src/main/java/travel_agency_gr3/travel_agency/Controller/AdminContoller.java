@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import travel_agency_gr3.travel_agency.DTO.CityDTO;
 import travel_agency_gr3.travel_agency.DTO.CountryDTO;
 import travel_agency_gr3.travel_agency.DTO.TripDTO;
 import travel_agency_gr3.travel_agency.Service.CityService;
@@ -60,10 +61,29 @@ public class AdminContoller {
     }
 
     @PostMapping(value = "/addcountry")
-    public String addCountry(@ModelAttribute(name = "countryFormData") @Valid CountryDTO countryDTO,Model model) {
+    public String addCountry(@ModelAttribute(name = "countryFormData") @Valid CountryDTO countryDTO, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "addCountryForm";
+        }
         countryService.updateCountry(countryDTO);
         model.addAttribute("addCountryData", countryDTO.getName());
         return "addCountryEffect";
+    }
+    @GetMapping(value = "/addcity")
+    public String addCityForm(Model model) {
+        model.addAttribute("cityFormData", new CityDTO());
+        model.addAttribute("countries",countryService.findAllCountry());
+        return "addCityForm";
+    }
+
+    @PostMapping(value = "/addcity")
+    public String addCity(@ModelAttribute(name = "cityFormData") @Valid CityDTO cityDTO, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "addCityForm";
+        }
+        cityService.updateCity(cityDTO);
+        model.addAttribute("addCityData", cityDTO.getName());
+        return "addCityEffect";
     }
 }
 

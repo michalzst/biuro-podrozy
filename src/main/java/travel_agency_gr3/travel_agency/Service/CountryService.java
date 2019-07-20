@@ -42,5 +42,8 @@ public class CountryService {
         }
         return countryListNames ;
     }
+    public Country findCountry(String name){
+        return countryRepo.findCountryByNameList(name).get(0);
+    }
 
 }

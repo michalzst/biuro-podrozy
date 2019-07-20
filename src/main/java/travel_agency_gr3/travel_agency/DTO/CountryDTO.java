@@ -2,6 +2,8 @@ package travel_agency_gr3.travel_agency.DTO;
 
 import lombok.*;
 
+import javax.validation.constraints.Pattern;
+
 @Getter
 @Builder
 @Setter
@@ -10,5 +12,7 @@ import lombok.*;
 public class CountryDTO {
 
     private Long id;
+
+    @Pattern(regexp = "^[\\p{Lu}][\\p{Ll}]{2,19}$", message = "Wymagane od 3 do 20 znaków (pierwsza litera duża, reszta małe).")
     private String name;
 }
